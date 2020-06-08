@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: 
+HOST:
 
 # DESAFIO BACKEND BOSSABOX
 
@@ -10,24 +10,24 @@ Documentação API Desafio BossaBox.
 ## Usuário [/user]
 
 ### Cadastrar usuário [POST]
-+ Request Create User
-    
-    + Headers
 
-            Content-Type: application/json
+- Request Create User
 
-    + Attributes (CreateUser)
+  - Headers
 
+          Content-Type: application/json
 
-+ Response 201 (application/json)
+  - Attributes (CreateUser)
 
-    + Attributes (User)
+* Response 201 (application/json)
 
-+ Response 400 (application/json)
+  - Attributes (User)
 
-    + Body
-            
-            "User exists!"
+* Response 400 (application/json)
+
+  - Body
+      
+     "User exists!"
 
 # Group Sessão
 
@@ -35,138 +35,144 @@ Documentação API Desafio BossaBox.
 
 ### Criar sessão [POST]
 
-+ Request Criar Sessão
+- Request Criar Sessão
 
-  + Headers
-        
-        Content-Type: application/json
-  
-  + Attributes (CreateSession)
+  - Headers
+      
+     Content-Type: application/json
 
-+ Response 201 (application/json)
+  - Attributes (CreateSession)
 
-   + Attributes (Session) 
+- Response 201 (application/json)
 
-+ Response 401 (application/json)
+  - Attributes (Session)
 
-    + Body
+- Response 401 (application/json)
 
-            "Password does not match"
+  - Body
 
-+ Response 401 (application/json)
+          "Password does not match"
 
-    + Body
+- Response 401 (application/json)
 
-            "User not exist"
+  - Body
+
+          "User not exist"
+
 # Group Ferramentas
 
 ## Ferramentas [/tools]
 
 ### Cadastrar nova ferramenta [POST]
 
-+ Request Cadastrar Ferramenta
+- Request Cadastrar Ferramenta
 
-  + Headers
-        
-        Authorization: Token JWT
-        Content-Type: application/json
-  
-  + Attributes (CreateTool)
+  - Headers
+      
+     Authorization: Token JWT
+    Content-Type: application/json
 
-+ Response 201 
+  - Attributes (CreateTool)
 
-  + Headers
-        
-        Content-Type: application/json
+- Response 201
 
-   + Attributes (Tool) 
+  - Headers
+      
+     Content-Type: application/json
+
+  - Attributes (Tool)
 
 ### Listar todas ferramentas [GET]
 
-+ Request
+- Request
 
-  + Headers
+  - Headers
 
         Authorization: Token JWT
 
-+ Response 201 
+- Response 201
 
-  + Headers
-        
-        Content-Type: application/json
+  - Headers
+      
+     Content-Type: application/json
 
-  + Attributes (array[Tool])
-   
+  - Attributes (array[Tool])
+
 ## Listar por tag [/tools{?tag}]
 
-+ Parameters
+- Parameters
 
-  + tag (string, optional) - Filtro de tag 
+  - tag (string, optional) - Filtro de tag
 
 ### Listar ferramentas por tag [GET]
 
-+ Request
+- Request
 
-  + Headers
+  - Headers
 
         Authorization: Token JWT
 
-+ Response 201 
+- Response 201
 
-  + Headers
-        
-        Content-Type: application/json
+  - Headers
+      
+     Content-Type: application/json
 
-  + Attributes (array[Tool])
+  - Attributes (array[Tool])
 
 ## Remover ferramenta [/tools/{id}]
 
-+ Parameters
+- Parameters
 
-  + id (number, required) - Identificador da ferramenta
+  - id (number, required) - Identificador da ferramenta
 
 ### Remover ferramenta por id [DELETE]
 
-+ Request
+- Request
 
-  + Headers
+  - Headers
 
         Authorization: Token JWT
 
-+ Response 204 No Content
-
+- Response 204 No Content
 
 # Data Structures
 
 ## User (object)
-+ id (string) - Identificador do usuário
-+ name (string) - Nome do usuário
-+ email (string) - Nome do usuário
+
+- id (string) - Identificador do usuário
+- name (string) - Nome do usuário
+- email (string) - Nome do usuário
 
 ## CreateUser (object)
-+ name (string) - Nome do usuário
-+ email (string) - Nome do usuário
-+ password (string) - Senha do usuário
-+ confirmPassword (string) - Confirmação de senha
+
+- name (string) - Nome do usuário
+- email (string) - Nome do usuário
+- password (string) - Senha do usuário
+- confirmPassword (string) - Confirmação de senha
 
 ## Session (object)
-+ user (User) - Dados do usuário
-+ token (string) - Token JWT
+
+- user (User) - Dados do usuário
+- token (string) - Token JWT
 
 ## CreateSession (object)
-+ email (string) - Email do usuário
-+ password (string) - Senha do usuário
+
+- email (string) - Email do usuário
+- password (string) - Senha do usuário
 
 ## Tool (object)
-+ id (string) - Identificador da ferramenta
-+ title (string) - Título(Nome) da ferramenta
-+ link (string) - Link de acesso da ferramenta
-+ description (number) - Descrição da ferramenta 
-+ tags (array[string]) - Palavras chave relacionada à ferramenta
-+ idUser (string) - Identificador do usuário
+
+- id (string) - Identificador da ferramenta
+- title (string) - Título(Nome) da ferramenta
+- link (string) - Link de acesso da ferramenta
+- description (number) - Descrição da ferramenta
+- tags (array[string]) - Palavras chave relacionada à ferramenta
+- idUser (string) - Identificador do usuário
 
 ## CreateTool (object)
-+ title (string) - Título(Nome) da ferramenta
-+ link (string) - Link de acesso da ferramenta
-+ description (number) - Descrição da ferramenta 
-+ tags (array[string]) - Palavras chave relacionada à ferramenta
+
+- title (string) - Título(Nome) da ferramenta
+- link (string) - Link de acesso da ferramenta
+- description (number) - Descrição da ferramenta
+- tags (array[string]) - Palavras chave relacionada à ferramenta
