@@ -55,4 +55,16 @@ describe("User", () => {
 
     expect(compareHash).toBe(true);
   });
+
+  it("not duplicated email", async () => {
+    const test = {
+      name: "Ênio",
+      email: "email@email.com",
+      password: "123456",
+    };
+
+    await request(app).post("/user").send(test);
+    const response = await request(app).post("/user").send(test);
+    expect(response.status).toBe(400);
+  });
 });

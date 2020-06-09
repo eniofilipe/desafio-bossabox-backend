@@ -5,7 +5,7 @@ import User from "../schemas/User";
 
 class ToolController {
   async store(req: Request, res: Response): Promise<Response> {
-    const idUser = res.getHeader("userId");
+    const idUser = res.getHeader("idUser");
 
     const newTool = await Tool.create({ ...req.body, idUser });
 
@@ -21,13 +21,23 @@ class ToolController {
       tag
         ? {
             tags: tag,
-            idUser: { $ne: newUser._id },
+            idUser: { $eq: newUser._id },
           }
         : {
-            idUser: { $ne: newUser._id },
+            idUser: { $eq: newUser._id },
           }
     ).lean();
     return res.json(tools);
+  }
+
+  async delete(req: Request, res: Response): Promise<Response> {
+    const deleteTool = await Tool.findByIdAndDelete(req.params.id);
+
+    if (!deleteTool) {
+      return res.status(400).json();
+    }
+
+    return res.status(204).json();
   }
 }
 

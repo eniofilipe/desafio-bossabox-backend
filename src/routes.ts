@@ -15,4 +15,6 @@ routes.post("/tool", ToolController.store);
 
 routes.get("/tool", ToolController.index);
 
+routes.delete("/tool/:id", ToolController.delete);
+
 export default routes;

@@ -165,4 +165,44 @@ describe("Tools", () => {
       }),
     ]);
   });
+
+  it("Delete tool by id", async () => {
+    const newTool = {
+      title: "notion",
+      link: "notion.so",
+      description: "very good tool",
+      tags: ["notion", "web", "to-do"],
+    };
+
+    const responseTool = await request(app)
+      .post("/tool")
+      .set({ authorization: "Bearer " + login.body.token })
+      .send(newTool);
+
+    const response = await request(app)
+      .delete(`/tool/${responseTool.body._id}`)
+      .set({ authorization: "Bearer " + login.body.token });
+
+    expect(response.status).toBe(204);
+  });
+
+  it("Delete tool by id", async () => {
+    const newTool = {
+      title: "notion",
+      link: "notion.so",
+      description: "very good tool",
+      tags: ["notion", "web", "to-do"],
+    };
+
+    await request(app)
+      .post("/tool")
+      .set({ authorization: "Bearer " + login.body.token })
+      .send(newTool);
+
+    const response = await request(app)
+      .delete(`/tool/5edfbcc7318e977072ab8e95`)
+      .set({ authorization: "Bearer " + login.body.token });
+
+    expect(response.status).toBe(400);
+  });
 });
