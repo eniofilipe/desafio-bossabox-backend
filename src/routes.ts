@@ -13,4 +13,6 @@ routes.post("/session", SessionController.store);
 routes.use(authMiddleware);
 routes.post("/tool", ToolController.store);
 
+routes.get("/tool", ToolController.index);
+
 export default routes;
