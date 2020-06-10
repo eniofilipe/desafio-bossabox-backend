@@ -26,8 +26,7 @@ Documentação API Desafio BossaBox.
 * Response 400 (application/json)
 
   - Body
-      
-     "User exists!"
+    "User exists!"
 
 # Group Sessão
 
@@ -38,8 +37,8 @@ Documentação API Desafio BossaBox.
 - Request Criar Sessão
 
   - Headers
-      
-     Content-Type: application/json
+
+        Content-Type: application/json
 
   - Attributes (CreateSession)
 
@@ -68,17 +67,17 @@ Documentação API Desafio BossaBox.
 - Request Cadastrar Ferramenta
 
   - Headers
-      
-     Authorization: Token JWT
-    Content-Type: application/json
+
+        Authorization: Token JWT
+        Content-Type: application/json
 
   - Attributes (CreateTool)
 
 - Response 201
 
   - Headers
-      
-     Content-Type: application/json
+
+        Content-Type: application/json
 
   - Attributes (Tool)
 
@@ -93,8 +92,8 @@ Documentação API Desafio BossaBox.
 - Response 201
 
   - Headers
-      
-     Content-Type: application/json
+
+        Content-Type: application/json
 
   - Attributes (array[Tool])
 
@@ -115,8 +114,8 @@ Documentação API Desafio BossaBox.
 - Response 201
 
   - Headers
-      
-     Content-Type: application/json
+
+        Content-Type: application/json
 
   - Attributes (array[Tool])
 
