@@ -13,7 +13,11 @@ class UserController {
 
     const newUser = await User.create(req.body);
 
-    return res.status(201).json(newUser);
+    return res.status(201).json({
+      id: newUser._id,
+      name: newUser.name,
+      email: newUser.email,
+    });
   }
 }
 
