@@ -1,177 +1,42 @@
-FORMAT: 1A
-HOST:
+# Desafio Backend BossaBox
 
-# DESAFIO BACKEND BOSSABOX
+API proposta pela BossaBox
 
-Documentação API Desafio BossaBox.
+Aplicação disponivel em: https://desafiobossabox-backend.herokuapp.com/
 
-# Group Usuário
+## Tecnologias do Front-end
 
-## Usuário [/user]
+- Typescript
+- Express
+- JWT
+- API Rest
+- Bcryptjs
+- Jest
+- Mongoose
 
-### Cadastrar usuário [POST]
+# Executando aplicação
 
-- Request Create User
+## `git clone`
 
-  - Headers
+Execute o clone da aplicação a partir do repositório: https://github.com/eniofilipe/desafio-bossabox-backend.git
 
-          Content-Type: application/json
+## `yarn`
 
-  - Attributes (CreateUser)
+Execute o comando 'yarn' no diretório da aplicação para que seja instalado as respectivas dependências.
 
-* Response 201 (application/json)
+## `yarn dev`
 
-  - Attributes (User)
+Executa a aplicação em modo 'development' (desenvolvimento).
+Acesse [http://localhost:3000](http://localhost:3000).
 
-* Response 400 (application/json)
+## `yarn build`
 
-  - Body
-    "User exists!"
+Constroi a build da aplicação.
 
-# Group Sessão
+## `yarn start`
 
-## Sessão [/session]
+Executa a build construida com o comando `yarn build`.
 
-### Criar sessão [POST]
+## `yarn test` ou `yarn test -i`
 
-- Request Criar Sessão
-
-  - Headers
-
-        Content-Type: application/json
-
-  - Attributes (CreateSession)
-
-- Response 201 (application/json)
-
-  - Attributes (Session)
-
-- Response 401 (application/json)
-
-  - Body
-
-          "Password does not match"
-
-- Response 401 (application/json)
-
-  - Body
-
-          "User not exist"
-
-# Group Ferramentas
-
-## Ferramentas [/tools]
-
-### Cadastrar nova ferramenta [POST]
-
-- Request Cadastrar Ferramenta
-
-  - Headers
-
-        Authorization: Token JWT
-        Content-Type: application/json
-
-  - Attributes (CreateTool)
-
-- Response 201
-
-  - Headers
-
-        Content-Type: application/json
-
-  - Attributes (Tool)
-
-### Listar todas ferramentas [GET]
-
-- Request
-
-  - Headers
-
-        Authorization: Token JWT
-
-- Response 201
-
-  - Headers
-
-        Content-Type: application/json
-
-  - Attributes (array[Tool])
-
-## Listar por tag [/tools{?tag}]
-
-- Parameters
-
-  - tag (string, optional) - Filtro de tag
-
-### Listar ferramentas por tag [GET]
-
-- Request
-
-  - Headers
-
-        Authorization: Token JWT
-
-- Response 201
-
-  - Headers
-
-        Content-Type: application/json
-
-  - Attributes (array[Tool])
-
-## Remover ferramenta [/tools/{id}]
-
-- Parameters
-
-  - id (number, required) - Identificador da ferramenta
-
-### Remover ferramenta por id [DELETE]
-
-- Request
-
-  - Headers
-
-        Authorization: Token JWT
-
-- Response 204 No Content
-
-# Data Structures
-
-## User (object)
-
-- id (string) - Identificador do usuário
-- name (string) - Nome do usuário
-- email (string) - Nome do usuário
-
-## CreateUser (object)
-
-- name (string) - Nome do usuário
-- email (string) - Nome do usuário
-- password (string) - Senha do usuário
-- confirmPassword (string) - Confirmação de senha
-
-## Session (object)
-
-- user (User) - Dados do usuário
-- token (string) - Token JWT
-
-## CreateSession (object)
-
-- email (string) - Email do usuário
-- password (string) - Senha do usuário
-
-## Tool (object)
-
-- id (string) - Identificador da ferramenta
-- title (string) - Título(Nome) da ferramenta
-- link (string) - Link de acesso da ferramenta
-- description (number) - Descrição da ferramenta
-- tags (array[string]) - Palavras chave relacionada à ferramenta
-- idUser (string) - Identificador do usuário
-
-## CreateTool (object)
-
-- title (string) - Título(Nome) da ferramenta
-- link (string) - Link de acesso da ferramenta
-- description (number) - Descrição da ferramenta
-- tags (array[string]) - Palavras chave relacionada à ferramenta
+Executa os testes na aplicação usando Jest.

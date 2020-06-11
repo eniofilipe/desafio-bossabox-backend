@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import Tool from "../schemas/Tool";
-import mongoose, { Schema } from "mongoose";
 import User from "../schemas/User";
 
 class ToolController {
@@ -9,7 +8,7 @@ class ToolController {
 
     const newTool = await Tool.create({ ...req.body, idUser });
 
-    return res.json(newTool);
+    return res.status(201).json();
   }
 
   async index(req: Request, res: Response): Promise<Response> {
@@ -20,12 +19,12 @@ class ToolController {
     const tools = await Tool.find(
       tag
         ? {
-            tags: tag,
-            idUser: { $eq: newUser._id },
-          }
+          tags: tag,
+          idUser: { $eq: newUser._id },
+        }
         : {
-            idUser: { $eq: newUser._id },
-          }
+          idUser: { $eq: newUser._id },
+        }
     ).lean();
     return res.json(tools);
   }
