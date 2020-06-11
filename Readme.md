@@ -4,6 +4,10 @@ API proposta pela BossaBox
 
 Aplicação disponivel em: https://desafiobossabox-backend.herokuapp.com/
 
+Página da documentação da API gerado pela ferramenta Aglio: https://eniofilipe.github.io/desafio-bossabox-backend/
+
+Documetação em API Blueprint: https://github.com/eniofilipe/desafio-bossabox-backend/blob/master/api.apib
+
 ## Tecnologias da API
 
 - Typescript
