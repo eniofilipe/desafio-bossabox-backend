@@ -4,7 +4,7 @@ API proposta pela BossaBox
 
 Aplicação disponivel em: https://desafiobossabox-backend.herokuapp.com/
 
-## Tecnologias do Front-end
+## Tecnologias da API
 
 - Typescript
 - Express
@@ -14,7 +14,7 @@ Aplicação disponivel em: https://desafiobossabox-backend.herokuapp.com/
 - Jest
 - Mongoose
 
-# Executando aplicação
+# Executando API
 
 ## `git clone`
 
