@@ -36,7 +36,7 @@ describe("User", () => {
 
     const response = await request(app).post("/user").send(test);
 
-    expect(response.body).toHaveProperty("_id");
+    expect(response.body).toHaveProperty("id");
   });
 
   it("should encrypt user password when new user created", async () => {
@@ -48,10 +48,12 @@ describe("User", () => {
 
     const response = await request(app).post("/user").send(test);
 
-    const compareHash = bcrypt.compareSync(
+    const userCompare = await User.findById(response.body.id);
+
+    const compareHash = userCompare ? bcrypt.compareSync(
       test.password,
-      response.body.password
-    );
+      userCompare.password
+    ) : false;
 
     expect(compareHash).toBe(true);
   });

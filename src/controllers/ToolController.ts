@@ -8,7 +8,7 @@ class ToolController {
 
     const newTool = await Tool.create({ ...req.body, idUser });
 
-    return res.status(201).json();
+    return res.status(201).json(newTool);
   }
 
   async index(req: Request, res: Response): Promise<Response> {
@@ -30,7 +30,11 @@ class ToolController {
   }
 
   async delete(req: Request, res: Response): Promise<Response> {
-    const deleteTool = await Tool.findByIdAndDelete(req.params.id);
+
+    const tool = new Tool();
+    tool._id = req.params.id;
+
+    const deleteTool = await Tool.findByIdAndDelete(tool._id);
 
     if (!deleteTool) {
       return res.status(400).json();

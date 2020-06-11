@@ -56,8 +56,7 @@ describe("Tools", () => {
       .set({ authorization: "Bearer " + login.body.token })
       .send(newTool);
 
-    expect(response.body).toHaveProperty("_id");
-    expect(response.body).toHaveProperty("title", "notion");
+    expect(response.status).toBe(201);
   });
 
   it("List tools", async () => {
@@ -186,7 +185,7 @@ describe("Tools", () => {
     expect(response.status).toBe(204);
   });
 
-  it("Delete tool by id", async () => {
+  it("Delete tool by id dont exists tool", async () => {
     const newTool = {
       title: "notion",
       link: "notion.so",

@@ -26,5 +26,4 @@ export default async (
     return res.status(401).json({ error: "token invalid" });
   }
 
-  return next();
 };
